@@ -21,7 +21,7 @@ void do_processing(int conn_fd, char *buffer){
 
     std::cout << "Client: " << buffer << std::endl;
 
-    char wbuf[] = "world";
+    char wbuf[] = "hi, from server";
 
     write(conn_fd, wbuf, strlen(wbuf));
 }
