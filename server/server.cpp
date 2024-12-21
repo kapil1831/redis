@@ -42,7 +42,7 @@ void createServer(){
     struct sockaddr_in address = {};
     address.sin_family = AF_INET;
     address.sin_port = htons(PORT);
-    address,sin_addr.s_addr = ntohl(0);  // INADDR_ANY
+    address.sin_addr.s_addr = ntohl(0);  // INADDR_ANY
 
     int rv = bind(fd, (struct sockaddr *)&address, sizeof(address));
 
@@ -52,6 +52,7 @@ void createServer(){
     }
 
     // listen for incoming connections
+    std::cout << "Listening on port " << PORT << "  ..."<<std::endl;
     rv = listen(fd, SOMAXCONN); //SOMAXCONN is the maximum number of connections that can be queued, here it is 128;
 
     if(rv){
@@ -84,6 +85,8 @@ void createServer(){
 int main(int argc, char *argv[])
 {
     // fd of file descriptor
+
+    createServer();
 
     return 0;
 }
